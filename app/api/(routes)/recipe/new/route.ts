@@ -1,4 +1,4 @@
-import { recipeManager } from "@/app/api/data"
+import { recipeManager } from '../../../data'
 import { NextResponse } from "next/server"
 
 export function POST(request) {
