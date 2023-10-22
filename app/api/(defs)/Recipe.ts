@@ -1,5 +1,14 @@
 export class Recipe {
-    constructor(id, name, ingredients = [], prepSteps = '') {
+    
+    getId: () => string
+    getName: () => string
+    setName: (name: string) => void
+    getIngredients: () => string[]
+    getPrepSteps: () => string
+    setPrepSteps: (prepSteps: string) => void
+
+
+    constructor(id: string, name: string, ingredients: string[] = [], prepSteps: string = '') {
         let _id = id
         let _name = name
         let _ingredients = ingredients

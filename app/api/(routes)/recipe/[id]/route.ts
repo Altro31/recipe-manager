@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { recipeManager } from "../../../data";
 
 export function GET(request, { params }) {
@@ -22,7 +22,7 @@ export function DELETE(request, {params}){
     }))
 }
 
-export async function PATCH(request, {params}){
+export async function PATCH(request: NextRequest, {params}){
     const formData = await request.formData()
     const recipe = recipeManager.getRecipeList().find(recipe => recipe.getId() === params.id)
 

@@ -1,16 +1,28 @@
 import { Recipe } from './Recipe'
 
+type editProps = {
+    name: string,
+    ingredients: string[],
+    prepSteps: string,
+}
+
 export class RecipeManager {
+
+    getRecipeList: () => Recipe[]
+    addRecipe: (recipeName: string, recipeIngredients: string[], recipePrepSteps: string) => Recipe
+    removeRecipe: (recipeId: string) => void
+    editRecipe: (recipeId: string, propsToEdit: editProps) => Recipe
+
     constructor(recipes = []) {
-        const _recipes = recipes
+        let _recipes = recipes
         let counter = 1
         this.getRecipeList = () => _recipes.slice()
         this.addRecipe = (recipeName, recipeIngredients, recipePrepSteps) => {
-            const recipe = new Recipe(counter++, recipeName, recipeIngredients, recipePrepSteps)
+            const recipe = new Recipe('R_' + counter++, recipeName, recipeIngredients, recipePrepSteps)
             _recipes.push(recipe)
             return recipe
         }
-        this.removeRecipe = (recipeId) => _recipes.filter((recipe) => recipe.getId() !== recipeId)
+        this.removeRecipe = (recipeId) => _recipes = _recipes.filter((recipe) => recipe.getId() !== recipeId)
         this.editRecipe = (recipeId, propsToEdit) => {
             const recipe = _recipes.find((recipe) => recipe.getId() === recipeId)
             recipe.setName(propsToEdit.name)
@@ -26,10 +38,11 @@ export class RecipeManager {
                     recipe.getPrepSteps().push(step)
                 }
             }
+            return recipe
         }
     }
 
-    getRecipesByIngredients(ingredients) {
+    getRecipesByIngredients(ingredients: string[]) {
         return this.getRecipeList().filter((recipe) => ingredients.every((ingredient) => recipe.getIngredients().includes(ingredient)))
     }
 }

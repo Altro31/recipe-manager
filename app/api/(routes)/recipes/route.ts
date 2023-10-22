@@ -1,9 +1,10 @@
 import { NextResponse } from "next/server";
-import { recipeManager } from '../data'
+import { recipeManager } from '../../data'
+import { RecipeModel } from "../../(defs)/models";
 
 export function GET() {
 
-    const body = []
+    const body: RecipeModel[] = []
     for (const recipe of recipeManager.getRecipeList()) {
         body.push({
             id: recipe.getId(),
