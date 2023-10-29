@@ -1,3 +1,6 @@
+import {Input} from "@nextui-org/react";
+
+
 export default function FormBody(props) {
 
     const data = props.data || {
@@ -9,7 +12,7 @@ export default function FormBody(props) {
 
     return (
         <>
-
+            <Input label='Name' name='name' defaultValue={data.name}/>
         </>
     )
 }
