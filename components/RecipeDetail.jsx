@@ -1,23 +1,33 @@
-import Image from "next/image"
+'use client'
 
-export default function RecipeDetail({ data }) {
+import Image from "next/image"
+import {useContext} from "react";
+import {Context} from "./Context";
+
+
+
+export default function RecipeDetail({ id }) {
+
+    const {list} = useContext(Context)
+    const recipe = list.find((x)=>x.id === id)
+
     return (
         <div>
-            {data ? (
+            {recipe ? (
                 <div>
-                    <h1>{data.name}</h1>
-                    <Image src={data.imageUrl} alt={data.name} />
+                    <h1>{recipe.name}</h1>
+                    <Image src={recipe.imageUrl} alt={recipe.name} />
                     <h2>Ingredients</h2>
                     <ul>
-                        {data.ingredients.map((ingredient) => (
+                        {recipe.ingredients.map((ingredient) => (
                             <li key={ingredient}>{ingredient}</li>
                         ))}
                     </ul>
                     <h2>Steps</h2>
-                    <p>{data.prepSteps}</p>
+                    <p>{recipe.prepSteps}</p>
                 </div>
             ) : (
-                <p>No existe una receta con el id {data.id}</p>
+                <p>No existe una receta con el id {recipe.id}</p>
             )}
         </div>
     )

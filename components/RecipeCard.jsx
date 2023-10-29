@@ -1,4 +1,6 @@
 import { Card, CardHeader, CardBody, CardFooter } from '@nextui-org/react'
+import Image from "next/image";
+import Link from "next/link";
 
 
 /**Data contiene la info de la receta.
@@ -14,14 +16,12 @@ import { Card, CardHeader, CardBody, CardFooter } from '@nextui-org/react'
  * openDetail es una función que no tiene parámetros que al llamarla, muestra los detalles de la receta
  */
 
-export default function RecipeCard({ data, openDetail }) {
+export default function RecipeCard({ data}) {
     return (
-        <Card isPressable onPress={() => {
-
-            openDetail()
-        }}>
+        <Card as={Link} isPressable href={`http://localhost:3000/recipe/${data.id}`} isHoverable>
             <CardBody>
-                <>Edita a partir de aquí</>
+                <Image src={data.imageUrl} alt={data.name} />
+                <span>{data.name}</span>
             </CardBody>
         </Card>
     )
