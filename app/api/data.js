@@ -21,6 +21,9 @@ recipeManager.addRecipe(
 
     //Preparation Steps
     'Preparation Steps',
+
+    //Image URL
+    ''
 )
 
 // Flan
@@ -40,6 +43,9 @@ recipeManager.addRecipe(
 
     //Preparation Steps
     'Preparation Steps',
+
+    //Image URL
+    ''
 )
 
 // Torrejas
@@ -62,6 +68,9 @@ recipeManager.addRecipe(
 
     //Preparation Steps
     'Preparation Steps',
+
+    //Image URL
+    ''
 )
 // Arepas
 recipeManager.addRecipe(
@@ -83,6 +92,9 @@ recipeManager.addRecipe(
 
     //Preparation Steps
     'Preparation Steps',
+
+    //Image URL
+    ''
 )
 // Panetela
 recipeManager.addRecipe(
@@ -101,4 +113,7 @@ recipeManager.addRecipe(
 
     //Preparation Steps
     'Preparation Steps',
+
+    //Image URL
+    ''
 )
