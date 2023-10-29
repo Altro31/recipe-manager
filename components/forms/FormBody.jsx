@@ -12,7 +12,11 @@ export default function FormBody(props) {
 
     return (
         <>
-            <Input label='Name' name='name' defaultValue={data.name}/>
+            <Input label='Product name' name='Product name' defaultValue={data.name}/>
+            <Input label='Ingredients' name='Ingredients' defaultValue={data.ingredients}/>
+            <Input label='Prep Steps' name='Prep Steps' defaultValue={data.prepSteps}/>
+            <Input label='Image URL' name='Image URL' defaultValue={data.imageUrl}/>
+
         </>
     )
 }
