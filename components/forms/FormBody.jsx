@@ -1,8 +1,15 @@
 export default function FormBody(props) {
+
+    const data = props.data || {
+        name: '',
+        ingredients: [],
+        prepSteps: '',
+        imageUrl: '',
+    }
+
     return (
         <>
-            <input name='altro' value='Hola'/>
-            <input name='altro' value='Hola'/>
+
         </>
     )
 }
