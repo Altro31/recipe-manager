@@ -11,6 +11,7 @@ export function GET() {
             name: recipe.getName(),
             ingredients: recipe.getIngredients(),
             prepSteps: recipe.getPrepSteps(),
+            imageUrl: recipe.getImageUrl(),
         })
     }
 

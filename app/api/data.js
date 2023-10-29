@@ -1,7 +1,7 @@
 import { RecipeManager } from './(defs)/RecipeManager'
 
 
-export const recipeManager = new RecipeManager()
+export const recipeManager = RecipeManager.getInstance()
 
 // Arroz con Leche
 recipeManager.addRecipe(
@@ -16,6 +16,25 @@ recipeManager.addRecipe(
         'Arroz',
         'Leche',
         'Canela',
+        'Azucar',
+    ],
+
+    //Preparation Steps
+    'Preparation Steps',
+)
+
+// Arroz con Leche
+recipeManager.addRecipe(
+
+    //Id: 2
+
+    //name
+    'Flan',
+
+    //Ingredients
+    [
+        'Leche',
+        'Huevo',
         'Azucar',
     ],
 

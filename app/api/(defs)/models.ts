@@ -3,4 +3,5 @@ export type RecipeModel = {
     name: string,
     ingredients: string[],
     prepSteps: string,
+    imageUrl: string,
 }

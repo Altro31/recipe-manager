@@ -1,36 +1,7 @@
-'use client'
+import RecipeList from "../components/RecipeList";
 
-import { useEffect, useState } from "react"
+const getRecipes = () => fetch('http://localhost:3000/api/recipes').then(response => response.json())
 
-export default function Main() {
-
-    const [recipes, setRecipes] = useState([])
-
-    useEffect(() => {
-        fetch('http://localhost:3000/api/recipes').then(respone => {
-            respone.json().then(setRecipes)
-        })
-    }, []);
-
-
-
-    return <ul>
-        {recipes.map((recipe) => (
-            <li key={recipe.id}>
-                <p>Name: {recipe.name}</p>
-                <div>
-                    <h2>Ingredients:</h2>
-                    <ul>
-                        {recipe.ingredients.map(ingredient => (
-                            <li key={ingredient}>{ingredient}</li>
-                        ))}
-                    </ul>
-                </div>
-                <div>
-                    <h2>Preparation Steps</h2>
-                    <p>{recipe.prepSteps}</p>
-                </div>
-            </li>
-        ))}
-    </ul>
+export default async function Home() {
+    return <RecipeList recipes={await getRecipes()}/>
 }

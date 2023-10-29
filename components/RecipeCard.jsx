@@ -1,4 +1,4 @@
-import { Card, CardHeader, CardBody, CardFooter } from '@nextui-org/card'
+import { Card, CardHeader, CardBody, CardFooter } from '@nextui-org/react'
 
 
 /**Data contiene la info de la receta.
@@ -16,7 +16,10 @@ import { Card, CardHeader, CardBody, CardFooter } from '@nextui-org/card'
 
 export default function RecipeCard({ data, openDetail }) {
     return (
-        <Card>
+        <Card isPressable onPress={() => {
+
+            openDetail()
+        }}>
             <CardBody>
                 <>Edita a partir de aquí</>
             </CardBody>

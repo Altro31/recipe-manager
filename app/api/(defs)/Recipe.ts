@@ -1,29 +1,49 @@
 export class Recipe {
-    
-    getId: () => string
-    getName: () => string
-    setName: (name: string) => void
-    getIngredients: () => string[]
-    getPrepSteps: () => string
-    setPrepSteps: (prepSteps: string) => void
 
+    private id: string
+    private name: string
+    private ingredients: string[]
+    private prepSteps: string
+    private imageUrl: string
 
-    constructor(id: string, name: string, ingredients: string[] = [], prepSteps: string = '') {
-        let _id = id
-        let _name = name
-        let _ingredients = ingredients
-        let _prepSteps = prepSteps
+    constructor(id: string, name: string, ingredients: string[] = [], prepSteps: string = '', imageUrl: string = '') {
 
-        this.getId = () => _id
-        this.getName = () => _name
-        this.setName = function (name) {
-            if (name) _name = name
-        }
-        this.getIngredients = () => _ingredients
+        this.id = id
+        this.name = name
+        this.ingredients = ingredients
+        this.prepSteps = prepSteps
+        this.imageUrl = imageUrl
 
-        this.getPrepSteps = () => _prepSteps
-        this.setPrepSteps = (prepSteps) => {
-            if (prepSteps) _prepSteps = prepSteps
-        }
+    }
+
+    getId() {
+        return this.id
+    }
+    getName() {
+        return this.name
+    }
+    setName(name: string) {
+        if (name)
+            this.name = name
+    }
+    getIngredients() {
+        return this.ingredients
+    }
+
+    getPrepSteps() {
+        return this.prepSteps
+    }
+    setPrepSteps(prepSteps: string) {
+        if (prepSteps)
+            this.prepSteps = prepSteps
+    }
+
+    getImageUrl() {
+        return this.imageUrl
+    }
+
+    setImageUrl(url: string) {
+        if (url)
+            this.imageUrl = url
     }
 }
