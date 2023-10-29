@@ -43,16 +43,17 @@ export class RecipeManager {
 
     editRecipe(recipeId: string, propsToEdit: editProps) {
         const recipe = this.recipes.find((recipe) => recipe.getId() === recipeId)
-        recipe.setName(propsToEdit.name)
-        if (propsToEdit.ingredients) {
-            recipe.getIngredients().length = 0
-            for (const ingredient of propsToEdit.ingredients) {
-                recipe.getIngredients().push(ingredient)
+        if(recipe) {
+            recipe.setName(propsToEdit.name)
+            if (propsToEdit.ingredients) {
+                recipe.getIngredients().length = 0
+                for (const ingredient of propsToEdit.ingredients) {
+                    recipe.getIngredients().push(ingredient)
+                }
             }
+            recipe.setPrepSteps(propsToEdit.prepSteps)
+            recipe.setImageUrl(propsToEdit.imageUrl)
         }
-        recipe.setPrepSteps(propsToEdit.prepSteps)
-        recipe.setImageUrl(propsToEdit.imageUrl)
-
         return recipe
     }
 
