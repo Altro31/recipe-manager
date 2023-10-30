@@ -1,30 +1,29 @@
 'use client'
 
-import Image from "next/image"
 import {useContext} from "react";
 import {Context} from "./Context";
+import {Listbox, ListboxItem, ListboxSection, Textarea} from "@nextui-org/react";
 
 
-
-export default function RecipeDetail({ id }) {
+export default function RecipeDetail({id}) {
 
     const {list} = useContext(Context)
-    const recipe = list.find((x)=>x.id === id)
+    const recipe = list.find((x) => x.id === id)
 
     return (
         <div>
             {recipe ? (
                 <div>
-                    <h1>{recipe.name}</h1>
-                    <Image src={recipe.imageUrl} alt={recipe.name} height={40} width={40}/>
-                    <h2>Ingredients</h2>
-                    <ul>
-                        {recipe.ingredients.map((ingredient) => (
-                            <li key={ingredient}>{ingredient}</li>
-                        ))}
-                    </ul>
-                    <h2>Steps</h2>
-                    <p>{recipe.prepSteps}</p>
+                    <Listbox>
+                        <ListboxSection title='Ingredients'>
+                            {recipe.ingredients.map((ingredient) => (
+                                <ListboxItem key={ingredient}>
+                                    {ingredient}
+                                </ListboxItem>
+                            ))}
+                        </ListboxSection>
+                    </Listbox>
+                    <Textarea label='Preparation Steps' value={recipe.prepSteps} isReadOnly/>
                 </div>
             ) : (
                 <p>No existe una receta con el id {recipe.id}</p>

@@ -1,6 +1,6 @@
 'use client'
 
-import {Button, Input, ModalBody, ModalContent, ModalFooter, ModalHeader, Textarea} from "@nextui-org/react";
+import {Button, ModalBody, ModalContent, ModalFooter, ModalHeader} from "@nextui-org/react";
 import Link from "next/link";
 import {useContext, useRef} from "react";
 import {Context} from "../../../../../../components/Context";
@@ -32,9 +32,9 @@ export default function EditForm({params}) {
     }
 
     return <ModalContent>
-        {(onClose) => (recipe && (
+        {() => (recipe && (
                 <>
-                    <ModalHeader className="flex flex-col gap-1">Editing {recipe.name}</ModalHeader>
+                    <ModalHeader className="flex flex-col gap-1 text-white">Editing {recipe.name}</ModalHeader>
                     <ModalBody>
                         <form ref={formRef}>
                             <FormBody data={recipe} />

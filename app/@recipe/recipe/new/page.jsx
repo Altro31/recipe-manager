@@ -1,6 +1,6 @@
 'use client'
 
-import {Button, Input, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, Textarea} from "@nextui-org/react";
+import {Button, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader} from "@nextui-org/react";
 import Link from "next/link";
 import {usePathname, useRouter} from "next/navigation";
 import {useContext, useRef} from "react";
@@ -15,20 +15,23 @@ export default function Layout() {
     const router = useRouter()
     const {actTrigger} = useContext(Context)
 
-    async function handleForm(event) {
+    async function handleForm() {
         const formData = new FormData(formRef.current)
-        const result = await fetch('http://localhost:3000/api/recipe/new', {
-            method: 'POST',
-            body: JSON.stringify({
-                name: formData.get('name') || "",
-                ingredients: formData.getAll('ingredient'),
-                prepSteps: formData.get('prepSteps') || "",
-                imageUrl: formData.get('imageUrl') || "",
-            }),
-        })
+        const name = formData.get('name')
+        if(name) {
+            await fetch('http://localhost:3000/api/recipe/new', {
+                method: 'POST',
+                body: JSON.stringify({
+                    name: formData.get('name') || "",
+                    ingredients: formData.getAll('ingredient'),
+                    prepSteps: formData.get('prepSteps') || "",
+                    imageUrl: formData.get('imageUrl') || "",
+                }),
+            })
 
-        actTrigger()
-        router.push('/')
+            actTrigger()
+            router.push('/')
+        }
     }
 
     return (
@@ -37,9 +40,10 @@ export default function Layout() {
             isDismissable={false}
             hideCloseButton
             backdrop="blur"
+            className='bg-gray-900 text-white'
         >
             <ModalContent>
-                {(onClose) => (
+                {() => (
                     <>
                         <ModalHeader className="flex flex-col gap-1">
                             <h3>Create New Recipe</h3>

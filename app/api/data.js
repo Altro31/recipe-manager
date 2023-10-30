@@ -29,7 +29,7 @@ recipeManager.addRecipe(
     '7. Puedes servirlo caliente o refrigerarlo y servirlo frío. ¡Disfruta de este postre delicioso!',
 
     //Image URL
-    ''
+    '/arroz_con_leche.jpg'
 )
 
 // Flan
@@ -57,7 +57,7 @@ recipeManager.addRecipe(
     '7. Para servir, pasa un cuchillo alrededor del borde de cada flan y dale la vuelta en un plato para desmoldarlo. El caramelo líquido se verterá sobre el flan. ¡Disfruta!',
 
     //Image URL
-    ''
+    '/flan.jpg'
 )
 
 // Torrejas
@@ -87,7 +87,7 @@ recipeManager.addRecipe(
     '6. Espolvorea con azúcar y canela adicional, si lo deseas. ' +
     '7. Sirve las torrejas calientes y disfruta de este delicioso postre casero.',
     //Image URL
-    ''
+    '/torrejas.jpg'
 )
 // Arepas
 recipeManager.addRecipe(
@@ -116,7 +116,7 @@ recipeManager.addRecipe(
     '6. Sirve las arepas calientes y disfrútalas con tu relleno favorito, como queso, carne, aguacate o lo que prefieras.',
 
     //Image URL
-    ''
+    '/arepas.jpg'
 )
 // Panetela
 recipeManager.addRecipe(
@@ -144,5 +144,5 @@ recipeManager.addRecipe(
     '8. Sirve y disfruta de esta deliciosa panetela como postre o merienda.',
 
     //Image URL
-    ''
+    '/pudin.jpg'
 )

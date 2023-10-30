@@ -20,9 +20,12 @@ export default function Layout({children, params, edit, del}) {
         <Modal
             isOpen={open}
             isDismissable={false}
-            backdrop="opaque"
+            backdrop="blur"
             hideCloseButton={url !== `/recipe/${params.id}`}
             onClose={() => router.push('/')}
+            size='3xl'
+            scrollBehavior='inside'
+            className='bg-gray-900'
         >
             {url === `/recipe/${params.id}/del` ? (
                 del

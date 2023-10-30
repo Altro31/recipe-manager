@@ -8,37 +8,23 @@ export function Provider({children}) {
 
     const [list, setList] = useState([])
     const [trigger, setTrigger] = useState(0)
+    const [filter, setFilter] = useState('')
 
     useEffect(() => {
-        fetch('http://localhost:3000/api/recipes').then(res => res.json().then(setList))
-    }, [trigger]);
-
-    function add(recipe) {
-        list.push(recipe)
-        setList(list)
-        actTrigger()
-    }
-
-    function remove(id) {
-        setList(list.filter((recipe) => recipe.id !== id))
-        actTrigger()
-    }
-
-    function replace(id, recipe) {
-        const target = list.find((recipe) => recipe.id === id)
-        target.name = recipe.name
-        target.ingredients = recipe.ingredients
-        target.prepSteps = recipe.prepSteps
-        target.urlImage = recipe.urlImage
-        setList(list)
-        actTrigger()
-    }
+        fetch('http://localhost:3000/api/recipes').then(res => res.json().then(recipes => (
+            setList(recipes.filter(recipe => (
+                recipe.name.toLowerCase().includes(filter.toLowerCase())
+            ) || (
+                recipe.ingredients.some(ingredient => ingredient.toLowerCase().includes(filter.toLowerCase()))
+            )))
+        )))
+    }, [trigger, filter]);
 
     function actTrigger() {
         setTrigger(trigger + 1)
     }
 
-    return <Context.Provider value={{actTrigger, list}}>
+    return <Context.Provider value={{actTrigger, list, setFilter}}>
         {children}
     </Context.Provider>
 }
