@@ -58,6 +58,7 @@ export async function PATCH(request: NextRequest, {params}:Params){
             message: `There is no recipes with id: ${params.id}`
         }))
 
+    console.log(recipe)
     recipe.setName(body.name)
     recipe.getIngredients().length = 0
     for(const ingredient of body.ingredients){

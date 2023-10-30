@@ -20,7 +20,7 @@ export default function RecipeCard({ data}) {
     return (
         <Card as={Link} isPressable href={`http://localhost:3000/recipe/${data.id}`} isHoverable>
             <CardBody>
-                <Image src={data.imageUrl} alt={data.name} />
+                <Image src={data.imageUrl} alt={data.name} height={40} width={40}/>
                 <span>{data.name}</span>
             </CardBody>
         </Card>

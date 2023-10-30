@@ -1,25 +1,23 @@
 'use client'
 
-import {Button, Input, ModalBody, ModalContent, ModalFooter, ModalHeader, Textarea} from "@nextui-org/react";
+import {Button, Input, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, Textarea} from "@nextui-org/react";
 import Link from "next/link";
-
-import {Modal} from "@nextui-org/react";
 import {usePathname, useRouter} from "next/navigation";
 import {useContext, useRef} from "react";
 import {Context} from "../../../../components/Context";
+import FormBody from "../../../../components/forms/FormBody";
 
-export default function Layout(){
+export default function Layout() {
 
     const url = usePathname()
-    const open = url==='/recipe/new'
+    const open = url === '/recipe/new'
     const formRef = useRef()
     const router = useRouter()
-    const {add} = useContext(Context)
+    const {actTrigger} = useContext(Context)
 
-    async function handleForm(event){
+    async function handleForm(event) {
         const formData = new FormData(formRef.current)
-
-        const result = await fetch('http://localhost:3000/api/recipe/new',{
+        const result = await fetch('http://localhost:3000/api/recipe/new', {
             method: 'POST',
             body: JSON.stringify({
                 name: formData.get('name') || "",
@@ -29,8 +27,7 @@ export default function Layout(){
             }),
         })
 
-        add(await result.json())
-
+        actTrigger()
         router.push('/')
     }
 
@@ -39,7 +36,7 @@ export default function Layout(){
             isOpen={open}
             isDismissable={false}
             hideCloseButton
-            backdrop='blur'
+            backdrop="blur"
         >
             <ModalContent>
                 {(onClose) => (
@@ -49,13 +46,11 @@ export default function Layout(){
                         </ModalHeader>
                         <ModalBody>
                             <form ref={formRef}>
-                                <Input label='Name' name='name' />
-                                <Textarea label='Preparation Steps' name='prepSteps'/>
-                                <Input label='Image URL' name='imageURL' />
+                                <FormBody />
                             </form>
                         </ModalBody>
                         <ModalFooter>
-                            <Button color="danger" variant="light" as={Link} href='/'>
+                            <Button color="danger" variant="light" as={Link} href="/">
                                 Cancel
                             </Button>
                             <Button color="primary" onPress={handleForm}>

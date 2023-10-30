@@ -12,9 +12,11 @@ export default function RootLayout({children, recipe}) {
     <body className="w-full h-full">
     <NextUIProvider>
         <Provider>
-            <Nav/>
-            {children}
-            {recipe}
+            <div className='w-full h-full flex flex-col'>
+                <Nav/>
+                {children}
+                {recipe}
+            </div>
         </Provider>
     </NextUIProvider>
     </body>

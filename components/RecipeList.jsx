@@ -8,11 +8,7 @@ import {Button, Modal, ModalBody, ModalContent, ModalHeader, useDisclosure} from
 import {Context} from "./Context";
 
 export default function RecipeList({ recipes }) {
-    const {change, list,setList} = useContext(Context)
-
-    useEffect(() => {
-        setList(recipes)
-    }, [change]);
+    const {list} = useContext(Context)
 
     if (!list) return 'There is no recipes'
 
