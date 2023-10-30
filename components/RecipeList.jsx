@@ -1,9 +1,7 @@
 'use client'
 
 import RecipeCard from "../components/RecipeCard"
-import RecipeDetail from '../components/RecipeDetail'
 import {useContext, useEffect, useState} from "react"
-import {EditForm} from "./forms/EditForm";
 import {Button, Modal, ModalBody, ModalContent, ModalHeader, useDisclosure} from "@nextui-org/react";
 import {Context} from "./Context";
 

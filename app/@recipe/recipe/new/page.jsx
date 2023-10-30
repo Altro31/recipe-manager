@@ -5,7 +5,7 @@ import Link from "next/link";
 import {usePathname, useRouter} from "next/navigation";
 import {useContext, useRef} from "react";
 import {Context} from "../../../../components/Context";
-import FormBody from "../../../../components/forms/FormBody";
+import FormBody from "../../../../components/FormBody";
 
 export default function Layout() {
 

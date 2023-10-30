@@ -5,7 +5,7 @@ import Link from "next/link";
 import {useContext, useRef} from "react";
 import {Context} from "../../../../../../components/Context";
 import {useRouter} from "next/navigation";
-import FormBody from "../../../../../../components/forms/FormBody";
+import FormBody from "../../../../../../components/FormBody";
 
 export default function EditForm({params}) {
 
@@ -41,7 +41,7 @@ export default function EditForm({params}) {
                         </form>
                     </ModalBody>
                     <ModalFooter>
-                        <Button color="danger" variant="light" as={Link} href="/">
+                        <Button color="danger" variant="light" as={Link} href={`/recipe/${params.id}`}>
                             Cancel
                         </Button>
                         <Button color="primary" onPress={handleEdit}>
