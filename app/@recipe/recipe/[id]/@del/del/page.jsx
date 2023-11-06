@@ -25,7 +25,7 @@ export default function DeleteForm({params}) {
                 <>
                     <ModalHeader className="flex flex-col gap-1 text-white">Delete {recipe.name}</ModalHeader>
                     <ModalBody className='text-white'>
-                        <p>Are you shure you want to remove {recipe.name} from the recipe list?</p>
+                        <p>Are you sure you want to remove {recipe.name} from the recipe list?</p>
                     </ModalBody>
                     <ModalFooter>
                         <Button color="danger" variant="light" as={Link} href={`/recipe/${params.id}`}>

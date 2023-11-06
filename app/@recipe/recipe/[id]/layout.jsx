@@ -14,6 +14,7 @@ export default function Layout({children, params, edit, del}) {
         `/recipe/${params.id}`,
     ]
     const open = urls.includes(url)
+    const hideButton = (url===`/recipe/${params.id}`) || (url==="/")
 
 
     return (
@@ -21,7 +22,7 @@ export default function Layout({children, params, edit, del}) {
             isOpen={open}
             isDismissable={false}
             backdrop="blur"
-            hideCloseButton={url !== `/recipe/${params.id}`}
+            hideCloseButton={!hideButton}
             onClose={() => router.push('/')}
             size='3xl'
             scrollBehavior='inside'

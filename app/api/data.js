@@ -102,7 +102,7 @@ recipeManager.addRecipe(
         'Leche',
         'Huevo',
         'Azucar',
-        'Arina',
+        'Harina',
         'Agua',
         'Vainilla',
     ],
@@ -130,7 +130,7 @@ recipeManager.addRecipe(
     [
         'Huevo',
         'Azucar',
-        'Arina',
+        'Harina',
     ],
 
     //Preparation Steps

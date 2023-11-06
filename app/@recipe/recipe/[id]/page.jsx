@@ -5,13 +5,19 @@ import Link from "next/link";
 import RecipeDetail from "../../../../components/RecipeDetail";
 import {useContext} from "react";
 import {Context} from "../../../../components/Context";
+import { useRouter } from "next/navigation";
 
 export default function EditForm({params}) {
 
     const {list} = useContext(Context)
+    const router = useRouter()
     const recipe = list.find((x) => x.id === params.id)
 
-    return <ModalContent>
+    if(!recipe)
+        router.push("/")
+
+    return recipe && (
+        <ModalContent>
         {() => (
             <>
                 <ModalHeader className="flex bg-gray-900 text-white align-middle rounded-lg">
@@ -22,9 +28,11 @@ export default function EditForm({params}) {
                     </div>
                 </ModalHeader>
                 <ModalBody className='bg-white'>
-                    <RecipeDetail id={params.id}/>
+                    <RecipeDetail id={params.id} />
                 </ModalBody>
             </>
         )}
     </ModalContent>
+    )
+    
 }
